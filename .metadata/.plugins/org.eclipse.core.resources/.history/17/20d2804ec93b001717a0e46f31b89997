@@ -1,0 +1,10 @@
+{{emps}}
+
+<table border = 1>
+	 <tr  template="ngFor let emp of emps">
+	 		<td>{{emp.firstName}}</td>
+	 		<td>{{emp.lastName}}</td>
+	 		<td>{{emp.department}}</td>
+	 		<td>{{emp.id}}</td>
+	 <tr>
+</table>

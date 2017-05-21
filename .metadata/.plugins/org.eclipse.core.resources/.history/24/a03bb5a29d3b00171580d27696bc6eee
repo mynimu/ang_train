@@ -1,0 +1,3 @@
+<input [(ngModel)]="name1" placeholder="1. name"/>
+<input [(ngModel)]="name2" placeholder="2. name"/>
+<button (click)="check()"></button>

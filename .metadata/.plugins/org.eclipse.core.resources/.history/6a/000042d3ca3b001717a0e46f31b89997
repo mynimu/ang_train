@@ -1,0 +1,30 @@
+
+<table border = 1>
+	 <tr template="ngFor let emp of emps" (click)="detail(emp)">
+	 		<td>{{emp.firstName}}</td>
+	 		<td>{{emp.lastName}}</td>
+	 		<td>{{emp.department}}</td>
+	 		<td>{{emp.id}}</td>
+	 		<td (click)="deleteEmp(emp.id)">delete</td>
+	 <tr>
+</table>
+<button (click)="newEmp()">New</button>
+
+
+<form novalidate (ngSubmit)="check();" #form="ngForm" *ngIf="selectedEmp">
+	<p>
+		<input [(ngModel)]="selectedEmp.firstName" name="name1" placeholder="1. name"required #name1Input="ngModel" />
+	</p>
+	<p>
+		<input [(ngModel)]="selectedEmp.lastName" name="last" placeholder="LastName"required #name1Input="ngModel" />
+	</p>
+	<p>
+		<input [(ngModel)]="selectedEmp.department" name="dep" placeholder="Dep" required #name1Input="ngModel" />
+	</p>
+
+
+	<p *ngIf="form.valid">
+		<input type="submit" value="save" />
+	</p>
+
+</form>

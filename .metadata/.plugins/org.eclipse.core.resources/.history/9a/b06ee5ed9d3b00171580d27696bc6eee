@@ -1,0 +1,10 @@
+<p>
+<input [(ngModel)]="name1" placeholder="1. name" minLength="2" required/>
+</p>
+<p>
+<input [(ngModel)]="name2" placeholder="2. name" minLength="2" required/>
+</p>
+<button (click)="check()">check</button>
+
+<p [innerHTML]>
+</p>

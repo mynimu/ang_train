@@ -1,0 +1,18 @@
+<form novalidate (ngSubmit)="calc();" #form="ngForm">
+	<p>
+		<input [(ngModel)]="name1" name="name1" placeholder="1. name" minLength="2" required #name1Input/>
+		<span *ngIf="#name1Input.invalid">Name fehlt</span>
+	</p>
+	<p>
+	<input [(ngModel)]="name2" name="name2" placeholder="2. name" minLength="2" required/>
+	</p>
+	
+	
+	<p *ngIf="form.valid">
+		<input type="submit" value = "check" />
+	</p>
+	<p [innerHTML]="result" *ngIf="result">
+	</p>
+	
+	
+</form>

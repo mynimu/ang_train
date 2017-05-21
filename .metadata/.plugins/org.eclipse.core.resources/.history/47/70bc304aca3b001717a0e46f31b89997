@@ -1,0 +1,33 @@
+import { EmpService } from './emp.service';
+import { Employee } from './employee';
+import { Component, OnInit } from '@angular/core';
+
+import { Observable } from 'rxjs';
+@Component({
+  selector: 'app-emp',
+  templateUrl: './emp.component.html',
+  styleUrls: ['./emp.component.css']
+})
+export class EmpComponent implements OnInit {
+
+  emps : Employee[];
+  selectedEmp : Employee;
+  
+  constructor(private service : EmpService ) { }
+
+  ngOnInit() {
+    this.service.allEmps().then(a => this.emps = a);  
+  }
+
+  deleteEmp(empId){
+    this.service.deleteEmp(empId);
+  }
+  
+  detail(emp : Employee){
+    this.selectedEmp = new Employee(emp.firstName, emp.lastName, emp.department);
+    
+  }
+  detail(){
+    this.selectedEmp = new Employee();
+    }
+}

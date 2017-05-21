@@ -1,0 +1,41 @@
+
+<!-- 
+<h1>
+  {{title}}
+</h1>
+ <app-bmi-detail>  </app-bmi-detail> 
+<app-counter [time]="5" (finished) ="counterFinished($event)"></app-counter>-->
+<!-- <app-calculator></app-calculator> -->
+<!-- 
+
+{{emp1|emp}}
+
+
+{{emp2|emp}}
+{{title|emp}}
+
+ <app-formvalidation></app-formvalidation>
+
+  {{result|json}}
+ -->
+<ul>
+<li>
+ <a routerLink="/view1"> route 1</a>
+</li>
+<li>
+ <a routerLink="/view2"> route 2</a>
+</li>
+<li>
+ <a routerLink="/test"> test</a>
+</li>
+</ul>
+ 
+ <router-outlet></router-outlet>
+ 
+ 
+ <button (click)="test()">test</button>
+ <div *ngIf="result">
+ <p  template="ngFor let item of result.accounts">{{item.name}} - {{item.currency}} {{item.balance.balance}}</p><!-- {{item|json}} -->
+ </div>
+ 
+ {{result|json}}

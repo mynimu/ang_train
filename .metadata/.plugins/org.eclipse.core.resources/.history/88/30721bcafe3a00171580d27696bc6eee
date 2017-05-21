@@ -1,0 +1,21 @@
+import { Bmi } from './bmi';
+import { EmpPipe } from './emps/emp.pipe';
+import { Employee } from './emps/employee';
+import { Component } from '@angular/core';
+
+@Component({
+  selector: 'app-root',
+  templateUrl: './app.component.html',
+  styleUrls: ['./app.component.css']
+})
+export class AppComponent {
+  
+  let emp = new Employee();//'max','mustermann', 'any');
+  
+  
+  title = 'app works!'+ emp|EmpPipe;
+  
+  counterFinished(finishString: string) {
+    alert('outer: '+finishString);
+  }
+}

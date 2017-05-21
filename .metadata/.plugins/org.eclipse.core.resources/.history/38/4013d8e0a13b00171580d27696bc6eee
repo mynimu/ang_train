@@ -1,0 +1,20 @@
+import { Injectable } from '@angular/core';
+
+export interface LoveCalculatorResult{
+  fname: string;
+  sname: string;
+  percentage: number;
+  result: string;
+}
+
+@Injectable()
+export class LoveCalculatorService {
+
+//  constructor(http) { }
+
+  
+  calculateLove(name1: string, name2:string) : Promise<LoveCalculatorResult>{
+    
+  }
+  
+}

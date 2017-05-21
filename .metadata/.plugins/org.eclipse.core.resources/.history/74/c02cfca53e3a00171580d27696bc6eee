@@ -1,0 +1,46 @@
+import { Component, OnInit, Input } from '@angular/core';
+import { Observable } from 'rxjs';
+import { ObjectBindingOrAssignmentPattern } from 'typescript';
+
+@Component({
+  selector: 'app-counter',
+  templateUrl: './counter.component.html',
+  styleUrls: ['./counter.component.css']
+})
+export class CounterComponent  {
+
+  @Input() time : number;
+  showTime: number;
+  
+  timer = Observable.timer(1000,1000);
+
+  subscr: any;
+  
+  paused:boolean = false;
+  
+  start() :void
+  {
+    this.showTime = this.time;
+    this.continueTimer();
+  }
+  continueTimer():void
+    {
+    this.paused=false;
+    this.subscr = this.timer.subscribe(a => {if(this.showTime> 0){
+        this.showTime = this.showTime - 1;
+      }
+    else
+      {
+        alert("timer end");
+          this.subscr.unsubscribe();
+      
+      }
+    });
+    }
+
+  pause() :void
+  {
+      this.paused=true;
+    this.subscr.unsubscribe();
+  }
+}

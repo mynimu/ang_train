@@ -1,0 +1,10 @@
+export class Bmi {
+  groesse: number =0;
+  gewicht :number=0;
+  
+  bmi():number
+  {
+    return this.groesse+this.gewicht;
+
+  }
+}

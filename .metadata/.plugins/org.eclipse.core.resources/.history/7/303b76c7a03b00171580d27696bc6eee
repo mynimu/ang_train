@@ -1,0 +1,18 @@
+import { Component, OnInit, Input } from '@angular/core';
+
+@Component({
+  selector: 'app-formvalidation',
+  templateUrl: './formvalidation.component.html',
+  styleUrls: ['./formvalidation.component.css']
+})
+export class FormvalidationComponent  {
+
+  @Input() name1: string;
+  @Input() name2: string;
+  result: any;
+
+   check() {
+     alert('todo check');
+   }
+
+}

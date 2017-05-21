@@ -1,0 +1,8 @@
+<p>
+  <input [(ngModel)]="bmi.groesse" placeholder="Größe" (change)="onCalc()" />
+  <input [(ngModel)]="bmi.gewicht" placeholder="Gewicht" (change)="onCalc()"/>
+  <button (click)="onCalc()">calc</button>
+  
+</p>
+<div>{{bmi.result}}</div>
+<img [ngIf]="bmi.result < 20" "https://sciencenode.org/img/White_Mouse.JPG"/>

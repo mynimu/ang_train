@@ -1,0 +1,21 @@
+import { EmpService } from './emp.service';
+import { Employee } from './employee';
+import { Component, OnInit } from '@angular/core';
+
+@Component({
+  selector: 'app-emp',
+  templateUrl: './emp.component.html',
+  styleUrls: ['./emp.component.css']
+})
+export class EmpComponent implements OnInit {
+
+  emps : Employee[];
+  
+  constructor(private service : EmpService ) { }
+
+  ngOnInit() {
+    this.service.allEmps.then(a => this.emps = a);
+  
+  }
+
+}

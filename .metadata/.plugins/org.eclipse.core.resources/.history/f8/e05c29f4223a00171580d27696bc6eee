@@ -1,0 +1,15 @@
+import { Component, OnInit } from '@angular/core';
+
+@Component({
+  selector: 'app-detail-blogentry',
+  templateUrl: './detail-blogentry.component.html',
+  styleUrls: ['./detail-blogentry.component.css']
+})
+export class DetailBlogentryComponent implements OnInit {
+
+  constructor() { }
+
+  ngOnInit() {
+  }
+
+}

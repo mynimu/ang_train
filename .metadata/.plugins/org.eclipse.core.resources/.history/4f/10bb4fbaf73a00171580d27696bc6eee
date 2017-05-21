@@ -1,0 +1,27 @@
+import { CalculatorService } from './CalculatorService';
+import { CalculatorServiceIF } from './CalculatorService';
+import { Component, OnInit } from '@angular/core';
+
+@Component({
+  selector: 'app-calculator',
+  templateUrl: './calculator.component.html',
+  styleUrls: ['./calculator.component.css'],
+  providers: [CalculatorServiceIF]
+})
+export class CalculatorComponent  {
+
+  aValue: string;
+  bValue: string;
+  cValue:number;
+  
+  constructor(private calcService : CalculatorService) { }
+
+  
+  
+  onCalc(){
+    //alert(typeof this.cValue:number);
+  
+  //sum = this.calcService.sum(parseInt(this.aValue), parseInt(this.bValue));
+    alert(this.calcService.sum(this.cValue, this.cValue));
+  }
+}

@@ -1,0 +1,46 @@
+import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
+import { Observable } from 'rxjs';
+
+@Component({
+  selector: 'app-counter',
+  templateUrl: './counter.component.html',
+  styleUrls: ['./counter.component.css']
+})
+export class CounterComponent {
+
+  @Input() time: number;
+  showTime: number;
+  @Output() onFinished = new EventEmitter<string>();
+
+  timer = Observable.timer(1000, 1000);
+
+  subscr: any;
+
+  paused = false;
+
+  start(): void {
+    this.showTime = this.time;
+    this.continueTimer();
+  }
+  continueTimer(): void {
+    this.paused = false;
+    if (this.subscr) {
+      this.subscr.unsubscribe();
+    }
+    this.subscr = this.timer.subscribe(a => {
+      if (this.showTime > 0) {
+        this.showTime = this.showTime - 1;
+      } else {
+        alert('1');
+      
+        this.onFinished.emit("done");
+        this.subscr.unsubscribe();
+      }
+    });
+  }
+
+  pause(): void {
+    this.paused = true;
+    this.subscr.unsubscribe();
+  }
+}

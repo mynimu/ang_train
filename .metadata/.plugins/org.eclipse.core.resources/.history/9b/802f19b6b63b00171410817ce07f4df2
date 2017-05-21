@@ -1,0 +1,28 @@
+import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
+import { Observable } from 'rxjs';
+
+@Component({
+  selector: 'app-route2',
+  templateUrl: './route2.component.html',
+  styleUrls: ['./route2.component.css']
+})
+export class Route2Component implements OnInit {
+
+  id: string;
+
+  constructor(private route: ActivatedRoute, private router: Router) { }
+
+  ngOnInit() {
+    this.route.params.subscribe(params =>  {
+      this.id = params['id'];
+    }
+  )
+  }
+  //route.snapshot.params['id']
+
+  nav(){
+    this.router.navigate(['/view1']);
+  }
+  
+}

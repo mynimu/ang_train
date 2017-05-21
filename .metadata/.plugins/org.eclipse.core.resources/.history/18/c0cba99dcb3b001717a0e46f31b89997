@@ -1,0 +1,54 @@
+import { Employee } from './employee';
+import { Injectable } from '@angular/core';
+import { Http, Headers, RequestOptions, URLSearchParams } from '@angular/http';
+import "rxjs/add/operator/toPromise";
+import "rxjs/add/operator/map";
+import { Observable } from 'rxjs';
+
+
+
+@Injectable()
+export class EmpService {
+
+  private url = 'http://localhost:8080/EmployeeResource/resources/employee/';
+  
+  
+  constructor(private http: Http) { }
+
+  allEmps(): Promise<Employee[]>{
+    const headers = new Headers();
+    headers.append('Accept', 'application/json');
+      
+      const urlsearchParams = new URLSearchParams();
+  
+      const requestOptions = new RequestOptions({
+        headers: headers, 
+        search: urlsearchParams
+      });
+//     console.log(this.http.get(this.url, requestOptions));
+    
+    
+      return this.http.get(this.url+'all', requestOptions).map(a => a.json()).toPromise();
+      
+//      return promise.then(response => response.json());
+  }
+  
+  save(emp : Employee): Promise<Employee>{
+    let postFix = '';
+    if(emp.id){
+      postFix = emp.id+'';
+    }
+    return this.http.post(this.url+postFix, JSON.stringify({fistname: emp.firstName})).toPromise();
+  }
+  
+    
+    
+    
+    
+  deleteEmp(empId: number): void{
+    
+    this.http.delete(this.url+empId);
+  }
+    
+}
+

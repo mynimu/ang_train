@@ -1,0 +1,4 @@
+<p (click)="nva()">
+  route2 works!
+</p>
+{{id}}

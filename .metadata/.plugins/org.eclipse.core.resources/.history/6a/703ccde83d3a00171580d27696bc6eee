@@ -1,0 +1,7 @@
+<span>
+<input [(ngModel)]="time" placeholder="counter"/>
+<button (click)="start()">start</button>
+{{showTime}}
+<button (click)="pause()">pause</button>
+<button (click)="continueTimer()">continue</button>
+</span>

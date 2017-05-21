@@ -1,0 +1,74 @@
+import { Employee } from './employee';
+import { Injectable } from '@angular/core';
+import { Http, Headers, RequestOptions, URLSearchParams } from '@angular/http';
+import "rxjs/add/operator/toPromise";
+import 'rxjs/add/operator/map';
+import { Observable } from 'rxjs';
+
+
+
+@Injectable()
+export class EmpService {
+
+  private url = 'http://localhost:8080/EmployeeResource/resources/employee';
+  private headers = new Headers({'Content-Type': 'application/json'});
+  
+  constructor(private http: Http) { }
+
+  allEmps(): Promise<Employee[]>{
+    
+   const allUrl = `${this.url}/all`;
+  
+    const headers = new Headers();
+    headers.append('Accept', 'application/json');
+      
+      const urlsearchParams = new URLSearchParams();
+  
+      const requestOptions = new RequestOptions({
+        headers: headers, 
+        search: urlsearchParams
+      });
+//     console.log(this.http.get(this.url, requestOptions));
+    
+    
+      return this.http.get(allUrl, requestOptions).map(a => a.json()).toPromise();
+      
+//      return promise.then(response => response.json());
+  }
+  
+  save(emp : Employee): any{
+    
+   
+   const saveUrl = `${this.url}/${emp.id}`;
+    console.log(saveUrl);
+    console.log(JSON.stringify(emp));
+    console.log(this.headers);
+    
+    return this.http.put(saveUrl, JSON.stringify(emp), {headers: this.headers})
+//      .map(a => a.json())
+    .toPromise();
+  }
+  
+    
+  create(emp : Employee): Promise<Employee>{
+   
+    return this.http.post(this.url, JSON.stringify(emp), {headers: this.headers})
+      .map(a => a.json())
+    .toPromise();
+  }
+    
+    
+    
+  deleteEmp(empId: number): any{
+    
+   
+   const deleteUrl = `${this.url}/${empId}`;
+    
+    const headers = new Headers();
+    headers.append('Accept', 'application/json');
+    
+    return this.http.delete(deleteUrl, {headers: this.headers}).toPromise();
+  }
+    
+}
+

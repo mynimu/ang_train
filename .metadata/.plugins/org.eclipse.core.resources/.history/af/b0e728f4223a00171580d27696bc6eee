@@ -1,0 +1,25 @@
+import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+
+import { DetailBlogentryComponent } from './detail-blogentry.component';
+
+describe('DetailBlogentryComponent', () => {
+  let component: DetailBlogentryComponent;
+  let fixture: ComponentFixture<DetailBlogentryComponent>;
+
+  beforeEach(async(() => {
+    TestBed.configureTestingModule({
+      declarations: [ DetailBlogentryComponent ]
+    })
+    .compileComponents();
+  }));
+
+  beforeEach(() => {
+    fixture = TestBed.createComponent(DetailBlogentryComponent);
+    component = fixture.componentInstance;
+    fixture.detectChanges();
+  });
+
+  it('should create', () => {
+    expect(component).toBeTruthy();
+  });
+});

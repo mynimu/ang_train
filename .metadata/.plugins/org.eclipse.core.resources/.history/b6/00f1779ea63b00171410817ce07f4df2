@@ -1,0 +1,73 @@
+import { Injectable } from '@angular/core';
+import { Http, Headers, RequestOptions, URLSearchParams } from '@angular/http';
+import { Observable } from 'rxjs';
+
+export interface LoveCalculatorResult {
+  fname: string;
+  sname: string;
+  percentage: number;
+  result: string;
+}
+
+@Injectable()
+export class LoveCalculatorService {
+
+  private key = 'PMxf6RVwhTmshRP4VvKZPIGu4wuop14bxPWjsn5KgP4u5XZBNS';
+    
+  constructor(private http: Http) { }
+
+  
+  calculateLove(name1: string, name2:string): Promise<LoveCalculatorResult> {
+    const headers = new Headers();
+    headers.append('Accep', 'application/json');
+    headers.append('X-Mashape-Key', this.key);
+    
+    const urlsearchParams = new URLSearchParams();
+    urlsearchParams.append('fname', name1);
+    urlsearchParams.append('sname', name2);
+    
+    const requestOptions = new RequestOptions({
+      headers: headers, 
+      search: urlsearchParams
+    });
+  
+    const url = 'https://love-calculator.p.mashape.com/getPercentage';
+  
+    const promise = this.http.get(url, requestOptions).toPromise();
+    
+    return promise.then(response => response.json());
+  }
+  
+}
+      
+
+@Injectable()
+export class FigoService {
+
+  private key = 'ASHWLIkouP2O6_bgA2wWReRhletgWKHYjLqDaqb0LFfamim9RjexTo22ujRIP_cjLiRiSyQXyt2kM1eXU2XLFZQ0Hro15HikJQT_eNeT_9XQ';
+    
+  constructor(private http: Http) { }
+
+  
+  calculateLove(name1: string, name2:string): Promise<LoveCalculatorResult> {
+    const headers = new Headers();
+    headers.append('Authorization', 'Bearer '+this.key);
+    
+//    const urlsearchParams = new URLSearchParams();
+//    urlsearchParams.append('fname', name1);
+//    urlsearchParams.append('sname', name2);
+    
+    const requestOptions = new RequestOptions({
+      headers: headers, 
+      search: urlsearchParams
+    });
+  
+    const url = 'https://api.figo.me/rest/accounts';
+  
+    const promise = this.http.get(url, requestOptions).toPromise();
+    
+    return promise.then(response => response.json());
+  }
+  
+}
+      

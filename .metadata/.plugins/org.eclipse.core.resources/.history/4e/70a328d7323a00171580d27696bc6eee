@@ -1,0 +1,7 @@
+export class Bmi {
+  groesse: number;
+  gewicht: number;
+  result: number ;
+
+  
+}

@@ -1,0 +1,23 @@
+<form novalidate (ngSubmit)="check();" #form="ngForm"><!-- check(form.value) -->
+	<p>
+		<input [(ngModel)]="name1" name="name1" placeholder="1. name"
+			minLength="2" required #name1Input="ngModel" /> <span
+			*ngIf="name1Input.invalid && name1Input.touched">Name fehlt</span>
+	</p>
+	<p>
+		<input [(ngModel)]="name2" name="name2" placeholder="2. name"
+			minLength="2" required #name2Input="ngModel" /> <span
+			*ngIf="name2Input.invalid && name2Input.touched">Name fehlt</span>
+	</p>
+
+
+	<p *ngIf="form.valid">
+		<input type="submit" value="check" />
+	</p>
+	<p [innerHTML]="result" *ngIf="result"></p>
+
+	<li *ngFor="let item of result.accounts; let i = index;">
+	{{item.bank_name}}
+	</li>
+
+</form>

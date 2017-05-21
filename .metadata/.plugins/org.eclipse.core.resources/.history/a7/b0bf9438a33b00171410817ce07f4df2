@@ -1,0 +1,39 @@
+import { Injectable } from '@angular/core';
+import { Http, Headers, RequestOptions, UrlSearchParams } from '@angular/http';
+
+export interface LoveCalculatorResult{
+  fname: string;
+  sname: string;
+  percentage: number;
+  result: string;
+}
+
+@Injectable()
+export class LoveCalculatorService {
+
+  constructor(private http: Http) { }
+
+  private key = 'PMxf6RVwhTmshRP4VvKZPIGu4wuop14bxPWjsn5KgP4u5XZBNS';
+  
+  calculateLove(name1: string, name2:string) : Promise<LoveCalculatorResult>{
+    let headers = new Headers();
+    headers.append("Accep", "application/json");
+    headers.append("X-Mashape-Key", key);
+    
+    let urlsearchParams = new URLSearchParams();
+    urlsearchParams.append("fname", name1);
+    urlsearchParams.append("sname", name2);
+    
+    let requestOptions = new RequestOptions({
+      headers: headers, 
+      search: urlsearchParams
+    });
+  
+    http.url
+    
+    
+  
+    return null;
+  }
+  
+}

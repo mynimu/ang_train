@@ -1,0 +1,27 @@
+
+<!-- 
+<h1>
+  {{title}}
+</h1>
+ <app-bmi-detail>  </app-bmi-detail> 
+<app-counter [time]="5" (finished) ="counterFinished($event)"></app-counter>-->
+<!-- <app-calculator></app-calculator> -->
+<!-- 
+
+{{emp1|emp}}
+
+
+{{emp2|emp}}
+{{title|emp}}
+
+ <app-formvalidation></app-formvalidation>
+
+  {{result|json}}
+ -->
+ 
+ <app-route></app-route>
+ 
+ <button (click)="test()">test</button>
+ 
+ <p template="ngFor let item of result.accounts">{{item.name}} <italic>{{item|json}}<italic></p>
+ 

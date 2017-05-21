@@ -1,0 +1,29 @@
+import { BrowserModule } from '@angular/platform-browser';
+import { NgModule } from '@angular/core';
+import { FormsModule } from '@angular/forms';
+import { HttpModule } from '@angular/http';
+
+import { AppComponent } from './app.component';
+import { EmpComponent } from './emp/emp.component';
+import { EmpService } from './emp/emp.service';
+
+@NgModule({
+  declarations: [
+    AppComponent,
+    EmpComponent
+  ],
+  imports: [
+    BrowserModule,
+    FormsModule,
+    HttpModule
+    RouterModule.forRoot([
+      {path: 'Home', component: EmpComponent},
+      {path: 'Employees', component: EmpComponent},
+      {path: 'Employees/:id', component: EmpComponent},
+      {path: '**', redirectTo: 'view1', pathMatch: 'full'}    
+    ])
+  ],
+  providers: [EmpService],
+  bootstrap: [AppComponent]
+})
+export class AppModule { }

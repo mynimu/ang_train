@@ -1,0 +1,9 @@
+{{emps}}
+
+<table>
+ <tr  template="ngFor let item of result.accounts">
+ 		<t{{item.name}} - {{item.currency}} {{item.balance.balance}}
+ 		 -- {{item|json}}
+ <tr>
+
+</table>

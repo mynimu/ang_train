@@ -1,0 +1,30 @@
+import { Component, OnInit, Input } from '@angular/core';
+import { Observable } from 'rxjs';
+import { ObjectBindingOrAssignmentPattern } from 'typescript';
+
+@Component({
+  selector: 'app-counter',
+  templateUrl: './counter.component.html',
+  styleUrls: ['./counter.component.css']
+})
+export class CounterComponent  {
+
+  @Input() time : number;
+  
+  timer = Observable.timer(1000,1000);
+
+  subscr: any;
+  
+  
+  start() :void
+  {
+    this.subscr = this.timer.subscribe(a => {aler(a);if(this.time> 0){
+        this.time = this.time - a;
+      }});
+  }
+
+  pause() :void
+  {
+    this.subscr.unsubscribe();
+  }
+}

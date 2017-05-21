@@ -1,0 +1,17 @@
+import { Injectable } from '@angular/core';
+
+
+interface CalculatorServiceIF {
+  sum(a:number, b:number)
+}
+
+@Injectable()
+export class CalculatorService implements CalculatorServiveIF{
+  
+  sum(a:number, b:number): number{
+    return (a||0)+(b||0);
+  }
+  
+  
+    
+}

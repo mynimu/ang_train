@@ -1,0 +1,10 @@
+export class Bmi {
+  groesse: number;
+  gewicht: number;
+  result: number;
+  
+  calc()
+  {
+    this.result = this.groesse;
+  }
+}

@@ -1,0 +1,12 @@
+export class Employee {
+  
+  id: number;
+  department: string;
+  mobile : string;
+  mail: string;
+  
+  constructor (public firstname: string, public lastname: string, department?: string){
+    
+  }
+  
+}

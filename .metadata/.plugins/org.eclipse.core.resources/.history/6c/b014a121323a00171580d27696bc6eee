@@ -1,0 +1,9 @@
+<p>
+  <input [(ngModel)]="bmi.groesse" placeholder="Größe" (change)="bmi.calc()"/>
+  <input [(ngModel)]="bmi.gewicht" placeholder="Gewicht" (change)="bmi.calc()"/>
+  
+  
+ {{bmi.result}}
+  
+</p>
+<div></div>

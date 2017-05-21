@@ -1,0 +1,6 @@
+ <input [(ngModel)]="aValue" placeholder="a" (change)="onCalc()"  />
+  <input [(ngModel)]="bValue" placeholder="b" (change)="onCalc()"/>
+  
+  
+  <input type="number" [(ngModel)]="cValue" placeholder="c" (change)="onCalc()" />
+  

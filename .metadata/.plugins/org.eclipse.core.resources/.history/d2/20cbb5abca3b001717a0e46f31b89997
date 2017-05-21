@@ -1,0 +1,11 @@
+
+<table border = 1>
+	 <tr template="ngFor let emp of emps" (click)="detail(emp.id)">
+	 		<td>{{emp.firstName}}</td>
+	 		<td>{{emp.lastName}}</td>
+	 		<td>{{emp.department}}</td>
+	 		<td>{{emp.id}}</td>
+	 		<td (click)="deleteEmp(emp.id)">delete</td>
+	 <tr>
+</table>
+<button (click)="newEmp()">New</button>

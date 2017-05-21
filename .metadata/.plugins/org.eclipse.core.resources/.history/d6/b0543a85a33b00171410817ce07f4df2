@@ -1,0 +1,41 @@
+import { Injectable } from '@angular/core';
+import { Http, Headers, RequestOptions, UrlSearchParams } from '@angular/http';
+
+export interface LoveCalculatorResult{
+  fname: string;
+  sname: string;
+  percentage: number;
+  result: string;
+}
+
+@Injectable()
+export class LoveCalculatorService {
+
+  constructor(private http: Http) { }
+
+  private const key = 'PMxf6RVwhTmshRP4VvKZPIGu4wuop14bxPWjsn5KgP4u5XZBNS';
+  
+  calculateLove(name1: string, name2:string) : Promise<LoveCalculatorResult>{
+    const headers = new Headers();
+    headers.append("Accep", "application/json");
+    headers.append("X-Mashape-Key", key);
+    
+    const urlsearchParams = new URLSearchParams();
+    urlsearchParams.append('fname', name1);
+    urlsearchParams.append('sname', name2);
+    
+    const requestOptions = new RequestOptions({
+      headers: headers, 
+      search: urlsearchParams
+    });
+  
+    const url = 'https://love-calculator.p.mashape.com/getPercentage';
+  
+    this.http.get(url, requestOptions);
+    
+    
+  
+    return null;
+  }
+  
+}

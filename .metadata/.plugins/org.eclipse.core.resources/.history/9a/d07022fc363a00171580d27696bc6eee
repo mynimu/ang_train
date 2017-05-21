@@ -1,0 +1,4 @@
+<span>
+<input placeholder="counter"/>
+<button (click)="start()">start</button>
+</span>
